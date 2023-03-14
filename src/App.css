@@ -41,8 +41,37 @@
   height: 200px;
   width: 200px;
   overflow: hidden;
+  /* display: inline-flex; */
+  /* background-color: royalblue; */
 }
 
 .img_container img{
   object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+#gods{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+}
+
+#gods div{
+  /* grid-row: span 1; */
+  background-color: #61dafb;
+  border: 1px solid #282c34;
+  overflow: hidden;
+
+}
+
+.gods_images{
+  cursor: pointer;
+}
+
+.gods_images img{
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
