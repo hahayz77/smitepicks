@@ -11,7 +11,7 @@ function App() {
             </div>
             <div id='maincontent' className="fluid-container">
                 <div className="row">
-                    <div id="team1" className='bg-primary col'>
+                    <div id="team1" className='bg-danger col'>
                         <div className="row">
                             <div className="img_container">
                                 <img src="https://webcdn.hirezstudios.com/smite/god-cards/ares.jpg" alt="..."/>
