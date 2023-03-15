@@ -44,7 +44,7 @@ function App() {
         
   return (
     <>
-        <div className="App bg-danger">
+        <div className="App">
                 <div id='title' className="container">
                     <h1>Smite Picks</h1>
                 </div>
@@ -54,19 +54,19 @@ function App() {
                 </div>
                 <div id='maincontent' className="fluid-container">
                     <div className="row">
-                        <div id="team1" className='bg-danger col'>
-                           {teamA.map((teamA)=>{
+                        <div id="team1" className='bg-primary col'>
+                           {teamA.map((teamA, index)=>{
                             return(
-                                <div className="row">
-                                    <div className="img_container">
-                                        <img src={teamA.image === undefined ? "" : teamA.image} alt="..."/>
+                                <div className="row player_container">
+                                    <div className="img_container my-2">
+                                        <img src={teamA.image === undefined ? "https://cdn.shopify.com/s/files/1/0735/7415/products/smite-pentakill_2000x.jpg?v=1542612477" : teamA.image} alt="..."/>
                                     </div>
-                                <span>{teamA.name === undefined ? "" : teamA.name}</span>
+                                    <span>{teamA.name === undefined ? "Player"+(index+1) : teamA.name}</span>
                                 </div>
                             )
                            })}
                         </div>
-                        <div id="gods" className='bg-primary col'>
+                        <div id="gods" className='bg-dark col'>
                            {repeat.map((gods)=>{
                             return(
                                 <div className='gods_images' onClick={()=>{ImageSet(()=>{repeat.find(repeat.name)})}}>
@@ -77,13 +77,13 @@ function App() {
                            })}
                         </div>
                         <div id="team2" className='bg-danger col'>
-                        {teamB.map((teamB)=>{
+                        {teamB.map((teamB, index)=>{
                             return(
                                 <div className="row">
-                                    <div className="img_container">
-                                        <img src={teamB.image === undefined ? "" : teamB.image} alt="..."/>
+                                    <div className="img_container my-2">
+                                        <img src={teamB.image === undefined ? "https://cdn.shopify.com/s/files/1/0735/7415/products/smite-pentakill_2000x.jpg?v=1542612477" : teamB.image} alt="..."/>
                                     </div>
-                                <span>{teamB.name}</span>
+                                    <span>{teamB.name === undefined ? "Player"+(index+3) : teamB.name}</span>
                                 </div>
                             )
                            })}
