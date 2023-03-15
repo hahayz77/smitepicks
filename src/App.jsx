@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-    const repeat = [
+    const gods = [
         {name: "Battleworn" , image: "https://static.wikia.nocookie.net/smite_gamepedia/images/5/56/T_Achilles_Battleworn_Icon.png"},
         {name: "DeathKnight" , image: "https://static.wikia.nocookie.net/smite_gamepedia/images/9/9b/T_Achilles_DeathKnight_Icon.png"},
         {name: "Demon" , image: "https://static.wikia.nocookie.net/smite_gamepedia/images/6/67/T_Achilles_Demon_Icon.png"},
@@ -23,11 +23,11 @@ function App() {
         
     function Scripts(){
         if(commandIndex <= 1){ 
-            setTeams(() => {teams[commandIndex] = repeat[commandIndex]; return teams});
+            setTeams(() => {teams[commandIndex] = gods[commandIndex]; return teams});
             setCommandIndex(result => result = commandIndex + 1)
         } 
         if(commandIndex > 1 && commandIndex <= 3){
-            setTeams(() => {teams[commandIndex] = repeat[commandIndex]; return teams});
+            setTeams(() => {teams[commandIndex] = gods[commandIndex]; return teams});
             setCommandIndex(result => result = commandIndex + 1)
         }
     }
@@ -50,7 +50,7 @@ function App() {
                 </div>
                 <div id='playercommands' className="fluid-container bg-success">
                     {commands[commandIndex]}
-                    <button className='btn btn-primary' onClick={()=>{Scripts(()=>{repeat.find(commands)})}}>Select</button>
+                    <button className='btn btn-primary' onClick={()=>{Scripts(()=>{gods.find(commands)})}}>Select</button>
                 </div>
                 <div id='maincontent' className="fluid-container">
                     <div className="row">
@@ -67,9 +67,9 @@ function App() {
                            })}
                         </div>
                         <div id="gods" className='bg-dark col'>
-                           {repeat.map((gods)=>{
+                           {gods.map((gods)=>{
                             return(
-                                <div className='gods_images' onClick={()=>{ImageSet(()=>{repeat.find(repeat.name)})}}>
+                                <div className='gods_images' onClick={()=>{ImageSet(()=>{gods.find(gods.name)})}}>
                                     {gods.name}
                                     <img src={gods.image} alt={gods.name} />
                                 </div>   
