@@ -1,9 +1,9 @@
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
-    const gods = [
+    const fetchData = [
         {name: "Battleworn" , image: "https://static.wikia.nocookie.net/smite_gamepedia/images/5/56/T_Achilles_Battleworn_Icon.png"},
         {name: "DeathKnight" , image: "https://static.wikia.nocookie.net/smite_gamepedia/images/9/9b/T_Achilles_DeathKnight_Icon.png"},
         {name: "Demon" , image: "https://static.wikia.nocookie.net/smite_gamepedia/images/6/67/T_Achilles_Demon_Icon.png"},
@@ -15,9 +15,18 @@ function App() {
         {name: "CCSkin" , image: "https://static.wikia.nocookie.net/smite_gamepedia/images/7/7e/T_Amaterasu_CCSkin_Icon.png"}
     ];
 
-    const [commands, setCommands] = useState(['command1', 'command2', 'command3','command4','command5',]);
+    const commands = [
+        '1 Bans TA',
+        '1 Bans TB',
+        '1 PICK TA',
+        '1 PICK TB',
+        '2 BAN TA',
+        '2 BAN TB',
+        '2 PICK TA',
+        '2 PICK TB',
+    ];
     const [commandIndex, setCommandIndex] = useState(0);
-    const [imgGod, setImgGod] = useState();
+    const [god, setGod] = useState();
     const [teamA, setTeamA] = useState([{},{}]);
     const [teamB, setTeamB] = useState([{},{}]);
     const [bansA, setBansA] = useState([{},{}]);
@@ -25,41 +34,57 @@ function App() {
     let pass = true;
     
     
-    function Verification(godSelected, commandIndex){
-        // console.log(bansA.find(e => e == godSelected))
-        // if(undefined){
+    function Verification(godSelected, commandIndex, testBans, allBans, testPicksA, testPicksB){
+        testBans = undefined;
+        allBans = [...bansA, ...bansB];
+        testPicksA = teamA;
+        testPicksB = teamB;
+        testBans = allBans.find(e => e.name === godSelected.name);
+        if(commandIndex === 6) testPicksA.find(e => e.name === godSelected.name);
+        if(commandIndex === 7) testPicksB.find(e => e.name === godSelected.name);
+        console.log(godSelected, commandIndex, allBans, testPicksA, testPicksB, bansA, bansB, allBans);
+        // if(testBans) pass = false;
+        
+        // if(!test){
         //     pass = false;
         // }
-        // if(bansA.find(e => e == godSelected)){
+        // console.log(godSelected);
+        // console.log(bansA.find(e => e.name == godSelected.name));
+        // console.log(bansB.find(e => e.name == godSelected.name));
+        // test = bansA.find(e => e.name == godSelected.name);
+        // if(bansA.find(e => e === godSelected)){
         //     console.log("BANISHED") 
         // }
 
     }
     
-    function ImageGod(imgGod){
-        setImgGod(imgGod);
-        if(commandIndex === 0) setBansA([imgGod, {}])
-        if(commandIndex === 1) setBansB([imgGod, {}])
-        if(commandIndex === 2) setTeamA([imgGod, {}])
-        if(commandIndex === 3) setTeamB([imgGod, {}])
-        if(commandIndex === 4) setBansA([bansA[0], imgGod])
-        if(commandIndex === 5) setBansB([bansB[0], imgGod])
+    function PickImageGod(god){
+        setGod(god);
+        if(commandIndex === 0) setBansA([god, {}])
+        if(commandIndex === 1) setBansB([god, {}])
+        if(commandIndex === 2) setTeamA([god, {}])
+        if(commandIndex === 3) setTeamB([god, {}])
+        if(commandIndex === 4) setBansA([bansA[0], god])
+        if(commandIndex === 5) setBansB([bansB[0], god])
 
-        // setTeamA([teamA[0], imgGod]);
+        // setTeamA([teamA[0], god]);
     }
 
     function MainScript(){
-        if(!imgGod){
+        if(!god){
             alert("You should select a God!");
             return;
         }
         
-        ImageGod(imgGod);
-        Verification(imgGod, commandIndex);
-        if(!pass) return;
+        PickImageGod(god);  // updates the useState obj
+        Verification(god, commandIndex); // test the Bans and the Picks from the sequence
+        if(!pass) {
+            alert("Already Banished or picked!")
+            return;
+        }
         
-        setCommandIndex(commandIndex+1);
-        setImgGod();
+        setCommandIndex(commandIndex+1);    // increse the variable to set the next one for the sequence
+        setGod();   // Updates the useState obj
 
     }
 
@@ -69,15 +94,14 @@ function App() {
     <>
         <div className="App">
                 <div id='title' className="container">
-                    <h1>Smite Picks</h1>
+                    <h1 className='title_section'>Smite Picks</h1>
                 </div>
                 <div id='playercommands' className="fluid-container bg-success">
                     {commands[commandIndex]}
                     <button className='btn btn-primary' onClick={()=>{MainScript()}}>Select</button>
                 </div>
                 <div id='maincontent' className="fluid-container">
-                    <div className="row">
-                        <div id="team1" className='bg-primary col'>
+                        <div id="team1" className=''>
                            {teamA.map((teamA, index)=>{
                             return(
                                 <div className="row player_container">
@@ -102,11 +126,11 @@ function App() {
                             </div>
                         </div>
                         <div id="gods" className='bg-dark col'>
-                           {gods.map((element)=>{
+                           {fetchData.map((god)=>{
                             return(
-                                <div className='gods_images' onClick={()=>{ImageGod(element)}}>
-                                    {element.name}
-                                    <img src={element.image} alt={element.name} />
+                                <div className='gods_images' onClick={()=>{PickImageGod(god)}}>
+                                    {god.name}
+                                    <img src={god.image} alt={god.name} />
                                 </div>   
                             )
                            })}
@@ -135,7 +159,6 @@ function App() {
                                 })} 
                             </div>
                         </div>
-                    </div>
                     
                 </div>
         </div>
