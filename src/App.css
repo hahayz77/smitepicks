@@ -6,37 +6,69 @@ html{
   box-sizing: border-box;
   overflow-x: hidden;
   width: 100vw;
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8c5f0254-310e-424b-8c3b-ae56c7b92b13/d8muz3e-04415d2f-9819-4576-99da-d078da1bf454.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzhjNWYwMjU0LTMxMGUtNDI0Yi04YzNiLWFlNTZjN2I5MmIxM1wvZDhtdXozZS0wNDQxNWQyZi05ODE5LTQ1NzYtOTlkYS1kMDc4ZGExYmY0NTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.s33QyE_Ty0ptzuS3fFULXuLA07lC7Nd64Ye8xZr9VI0");
+  backdrop-filter: blur(40px);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.title_section{
-  @apply text-6xl font-bold text-center text-red-900;
+#title{
+  @apply text-6xl font-bold text-center text-sky-950 w-full bg-slate-100 bg-opacity-20 backdrop-blur-sm py-6 mb-0;
 }
 
 #playercommands{
-  @apply bg-gray-400 text-center text-2xl;
+  @apply text-center text-2xl mt-6 text-gray-900;
 }
 
 #maincontent{
-  @apply bg-slate-600 grid grid-rows-1 grid-cols-3;
+  @apply grid grid-rows-1 grid-cols-3;
 }
 
-#team1{
- @apply  bg-blue-500 grid grid-rows-2 grid-cols-1;
+#teamA{
+ @apply  bg-blue-500 bg-opacity-20 backdrop-blur-sm grid grid-rows-3 grid-cols-1 border-l-4 border-blue-700 pl-6;
 }
+
+#teamB{
+  @apply  bg-red-500 bg-opacity-20 backdrop-blur-sm grid grid-rows-3 grid-cols-1 border-r-4 border-red-700 pr-6;
+ }
+
+.bans_container{
+ @apply  grid grid-cols-2 grid-rows-1 w-full;
+}
+
+#bans_teamA{
+ @apply  bg-red-700 bg-opacity-60 border-r-4 border-red-700 p-4
+}
+
+#bans_teamB{
+  @apply  bg-red-700 bg-opacity-60 border-l-4 border-red-700 p-4
+ }
 
 #team1 > *{
   @apply flex
 }
 
 #gods{
-  @apply  bg-gray-500 flex col-start-2 col-end-3;
+  @apply  bg-slate-400 bg-opacity-75 flex flex-wrap justify-center items-center gap-4 p-4 col-start-2 col-end-3 text-black font-bold text-lg text-center;
  }
+
+.gods_images span, .gods_images img{
+ @apply block mx-auto my-2 cursor-pointer hover:scale-110 duration-200;  
+}
 
 #team2{
   @apply  bg-red-500 flex
  }
 
+.player_container{
+ @apply  flex justify-center content-center text-white
+}
 
+button{
+  @apply bg-blue-700 rounded-lg mx-10 text-white px-6 py-1 my-2 hover:bg-blue-300 hover:text-blue-900 transition-all duration-200
+}
 
 img{
   @apply h-28 rounded-full;
