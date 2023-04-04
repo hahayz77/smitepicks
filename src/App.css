@@ -1,68 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html{
   box-sizing: border-box;
   overflow-x: hidden;
   width: 100vw;
 }
 
-.App {
-  text-align: center;
+.title_section{
+  @apply text-6xl font-bold text-center text-red-900;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#playercommands{
+  @apply bg-gray-400 text-center text-2xl;
 }
 
-.img_container{
-  display: inline-flex;
-  height: 200px;
-  width: 60%;
-  padding: 15px;
-  /* display: inline-flex; */
+#maincontent{
+  @apply bg-slate-600 grid grid-rows-1 grid-cols-3;
 }
 
-.player_container span{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: start;
-  align-items: center;
-  width: 30%;
+#team1{
+ @apply  bg-blue-500 grid grid-rows-2 grid-cols-1;
 }
 
-.img_container img{
-  object-fit: contain;
-  height: 100%;
-  width: 100%;
+#team1 > *{
+  @apply flex
 }
 
 #gods{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 10px;
-}
+  @apply  bg-gray-500 flex col-start-2 col-end-3;
+ }
 
-#gods div{
-  /* grid-row: span 1; */
-  background-color: #61dafb;
-  border: 1px solid #282c34;
-  overflow: hidden;
+#team2{
+  @apply  bg-red-500 flex
+ }
 
-}
 
-.gods_images{
-  cursor: pointer;
-}
 
-.gods_images img{
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
+img{
+  @apply h-28 rounded-full;
 }
