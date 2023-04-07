@@ -5,17 +5,13 @@
 html{
   box-sizing: border-box;
   overflow-x: hidden;
-  width: 100vw;
+  width: 100%;
   background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8c5f0254-310e-424b-8c3b-ae56c7b92b13/d8muz3e-04415d2f-9819-4576-99da-d078da1bf454.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzhjNWYwMjU0LTMxMGUtNDI0Yi04YzNiLWFlNTZjN2I5MmIxM1wvZDhtdXozZS0wNDQxNWQyZi05ODE5LTQ1NzYtOTlkYS1kMDc4ZGExYmY0NTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.s33QyE_Ty0ptzuS3fFULXuLA07lC7Nd64Ye8xZr9VI0");
   backdrop-filter: blur(40px);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-body{
-  @apply overflow-x-hidden;
 }
 
 #title{

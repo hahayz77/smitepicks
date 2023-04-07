@@ -16,6 +16,7 @@ export function TeamA({team, bans, name}) {
                     <h1 className="container_title"> ❌ Bans</h1>
                     <div className="bans_container">
                     {bans.map((bans, index)=>{
+                        console.log(bans)
                         return(
                                 <div key={`${name}${index}`} className="img_container">
                                     <img src={bans.image === undefined ? "https://cdn.shopify.com/s/files/1/0735/7415/products/smite-pentakill_2000x.jpg?v=1542612477" : bans.image} alt="..."/>
