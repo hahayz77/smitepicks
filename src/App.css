@@ -14,17 +14,37 @@ html{
   background-size: cover;
 }
 
+body{
+  @apply overflow-x-hidden;
+}
+
 #title{
-  @apply text-6xl font-bold text-center text-sky-950 w-full bg-slate-100 bg-opacity-20 backdrop-blur-sm py-6 mb-0;
+  @apply  text-sky-950 w-full bg-slate-100 bg-opacity-20 backdrop-blur-sm pb-4;
+}
+
+#title h1{
+  @apply text-6xl font-bold text-center text-sky-950 w-full pt-4;
 }
 
 #playercommands{
-  @apply text-center text-2xl mt-6 text-gray-900;
+  @apply text-center text-2xl mt-6 text-gray-900 font-mono font-bold;
+}
+
+button{
+  @apply bg-cyan-950 rounded-full mx-10 text-white px-6 py-1 my-2 hover:bg-cyan-600 hover:text-blue-950 transition-all hover:scale-105 duration-300 shadow-lg;
+}
+
+img{
+  @apply h-28 rounded-3xl;
 }
 
 #maincontent{
   @apply grid grid-rows-1 grid-cols-3;
 }
+
+
+/* ################### TEAMS ################### */
+
 
 #teamA{
  @apply  bg-blue-500 bg-opacity-20 backdrop-blur-sm grid grid-rows-3 grid-cols-1 border-l-4 border-blue-700 pl-6;
@@ -33,6 +53,22 @@ html{
 #teamB{
   @apply  bg-red-500 bg-opacity-20 backdrop-blur-sm grid grid-rows-3 grid-cols-1 border-r-4 border-red-700 pr-6;
  }
+ 
+ #team1 > *{
+   @apply flex
+ }
+
+#team2{
+  @apply  bg-red-500 flex
+ }
+
+.player_container{
+ @apply  flex justify-center content-center text-white
+}
+
+
+ /* ################### BANS ################### */
+
 
 .bans_container{
  @apply  grid grid-cols-2 grid-rows-1 w-full;
@@ -46,30 +82,15 @@ html{
   @apply  bg-red-700 bg-opacity-60 border-l-4 border-red-700 p-4
  }
 
-#team1 > *{
-  @apply flex
-}
+
+ /* ################### GODS ################### */
+
 
 #gods{
   @apply  bg-slate-400 bg-opacity-75 flex flex-wrap justify-center items-center gap-4 p-4 col-start-2 col-end-3 text-black font-bold text-lg text-center;
  }
 
-.gods_images span, .gods_images img{
- @apply block mx-auto my-2 cursor-pointer hover:scale-110 duration-200;  
+.gods_wrapper{
+ @apply grid place-items-center cursor-pointer hover:scale-110 duration-200;  
 }
 
-#team2{
-  @apply  bg-red-500 flex
- }
-
-.player_container{
- @apply  flex justify-center content-center text-white
-}
-
-button{
-  @apply bg-blue-700 rounded-lg mx-10 text-white px-6 py-1 my-2 hover:bg-blue-300 hover:text-blue-900 transition-all duration-200
-}
-
-img{
-  @apply h-28 rounded-full;
-}
