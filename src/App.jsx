@@ -28,6 +28,7 @@ function App() {
         '2º BAN',
         '2º PICK',
         '2º PICK',
+        'DONE!'
     ];
     const [commandIndex, setCommandIndex] = useState(0);
     const [god, setGod] = useState();
@@ -35,12 +36,14 @@ function App() {
     const [teamB, setTeamB] = useState([{},{}]);
     const [bansA, setBansA] = useState([{},{}]);
     const [bansB, setBansB] = useState([{},{}]);
-    const [allBans, setAllBans] = useState();
+    const [allBans, setAllBans] = useState([]);
     const [pass, setPass] = useState(true);
     const [playerSelector, setPlayerSelector] = useState();
+    const lastCommand = commands.length-1;
 
     useEffect(()=>{
         if(commandIndex === 0) setPlayerSelector("⚫");
+        else if(commandIndex === lastCommand) setPlayerSelector("🟢");
         else if((commandIndex % 2) === 0) setPlayerSelector("🔴");
         else setPlayerSelector("🔵");
     },[commandIndex])
@@ -50,12 +53,14 @@ function App() {
             setCommandIndex(commandIndex+1);
             return;
         }
+        if(commandIndex === lastCommand) return;
+
         if(!god) {
             alert("You should select a God!");
             return;
         }
         
-        PickImageGod(god, setGod, commandIndex, bansA, setBansA, bansB, setBansB, setTeamA, setTeamB);  // updates the useState obj
+        PickImageGod(god, setGod, commandIndex, bansA, setBansA, bansB, setBansB, teamA, setTeamA, teamB, setTeamB);  // updates the useState obj
         Verification(god, commandIndex, setPass, allBans, setAllBans, bansA, bansB); // test the Bans and the Picks from the sequence
         
         if(pass === false) {
@@ -85,7 +90,7 @@ function App() {
                         <div id="gods" className='bg-dark col'>
                            {fetchData.map((god)=>{
                             return(
-                                <div className='gods_wrapper' onClick={()=>{PickImageGod(god, setGod, commandIndex, bansA, setBansA, bansB, setBansB, setTeamA, setTeamB)}}>
+                                <div className='gods_wrapper' onClick={()=>{PickImageGod(god, setGod, commandIndex, bansA, setBansA, bansB, setBansB, teamA, setTeamA, teamB, setTeamB)}}>
                                     <span>{god.name}</span>
                                     <img src={god.image} alt={god.name} />
                                 </div>   
