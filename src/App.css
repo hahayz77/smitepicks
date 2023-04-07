@@ -74,14 +74,25 @@ img{
  @apply  grid grid-cols-2 grid-rows-1 w-full;
 }
 
+#bans_teamA, #bans_teamB{
+  @apply grid place-content-center grid-flow-row gap-x-6 text-center text-xl font-mono font-semibold text-white;
+}
+
 #bans_teamA{
- @apply  bg-red-700 bg-opacity-60 border-r-4 border-red-700 p-4
+ @apply  bg-red-700 bg-opacity-50 border-r-4 border-red-700 p-4 rounded-l-[2rem];
 }
 
 #bans_teamB{
-  @apply  bg-red-700 bg-opacity-60 border-l-4 border-red-700 p-4
- }
+  @apply  bg-red-700 bg-opacity-50 border-l-4 border-red-700 p-4 rounded-r-[2rem];
+}
 
+.bans_container{
+  @apply grid place-items-center grid-flow-col gap-x-10
+}
+
+#bans_teamA .container_title, #bans_teamB .container_title{
+  @apply py-3
+}
 
  /* ################### GODS ################### */
 

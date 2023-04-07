@@ -13,7 +13,7 @@ export function TeamA({team, bans, name}) {
                 )
                 })}
                 <div id={`bans_${name}`}>
-                    <h1 className="container_title">Bans</h1>
+                    <h1 className="container_title"> ❌ Bans</h1>
                     <div className="bans_container">
                     {bans.map((bans, index)=>{
                         return(
