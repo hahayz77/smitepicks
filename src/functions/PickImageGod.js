@@ -1,5 +1,5 @@
 export function PickImageGod(selectedGod, setSelectedGod, commandIndex, bansA, setBansA, bansB, setBansB, teamA, setTeamA, teamB, setTeamB){
-    console.log(selectedGod)
+    setSelectedGod(selectedGod);
     if(commandIndex === 1) setBansA([selectedGod, {}])
     if(commandIndex === 2) setBansB([selectedGod, {}])
     if(commandIndex === 3) setTeamA([selectedGod, {}])
@@ -8,6 +8,4 @@ export function PickImageGod(selectedGod, setSelectedGod, commandIndex, bansA, s
     if(commandIndex === 6) setBansB([bansB[0], selectedGod])
     if(commandIndex === 7) setTeamA([teamA[0], selectedGod])
     if(commandIndex === 8) setTeamB([teamB[0], selectedGod])
-
-    // setTeamA([teamA[0], god]);
 }

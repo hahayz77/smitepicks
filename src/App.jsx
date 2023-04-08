@@ -4,6 +4,7 @@ import './App.css';
 import { TeamA } from './components/Team';
 import { Verification } from './functions/Verification';
 import { PickImageGod } from './functions/PickImageGod';
+import { UpdateGodsArray } from './functions/UpdateGodsArray';
 
 function App() {
     const fetchData = [
@@ -46,27 +47,15 @@ function App() {
         }
         if(commandIndex === lastCommand) return; // Do it when its done!
 
-        if(!selectedGod) { // no selected God
-            alert("You should select a God!");
-            return;
-        }
-
-        if(selectedGod.banished === true){ // if the selected god is banished
-            alert("This god was banished");
-            return;
-        }
-        console.log(selectedGod);
-        PickImageGod(selectedGod, setSelectedGod, commandIndex, bansA, setBansA, bansB, setBansB, teamA, setTeamA, teamB, setTeamB);  // updates the useState obj
-        // let validation = Verification(); // test the Bans and the Picks from the sequence
-        let validation = true;
+        let validation = Verification(selectedGod, commandIndex, godsArray, teamA, teamB, bansA, bansB, lastCommand);
         if(validation === false) { // verify if all logic is ok!
-            alert("Already Banished or picked!");
             setSelectedGod();   // Updates the useState obj
             return;
         } else{
+            UpdateGodsArray(selectedGod, godsArray, setGodsArray, commandIndex);   //persists alterations on godsArray
+            setSelectedGod();   // Updates the useState obj
             setCommandIndex(commandIndex+1);    // increase the variable to set the next one for the sequence;     
         }
-        
     }
    
         
@@ -81,12 +70,13 @@ function App() {
                     </div>
                 </div>
                 <div id='maincontent' className="fluid-container">
-                    {console.log(bansA)}
                         <TeamA team={teamA} bans={bansA} name={"teamA"}/>
                         <div id="gods" className='bg-dark col'>
                            {godsArray.map((god)=>{
                             return(
-                                <div className='gods_wrapper' onClick={()=>{PickImageGod(selectedGod, setSelectedGod, commandIndex, bansA, setBansA, bansB, setBansB, teamA, setTeamA, teamB, setTeamB)}}>
+                                <div className='gods_wrapper' onClick={()=>{
+                                        PickImageGod(god, setSelectedGod, commandIndex, bansA, setBansA, bansB, setBansB, teamA, setTeamA, teamB, setTeamB);
+                                    }}>
                                     <span>{god.name}</span>
                                     <img src={god.image} alt={god.name} />
                                     {god.banished === true ? <span>Banished</span> : null}

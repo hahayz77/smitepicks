@@ -1,14 +1,16 @@
-export async function Verification(god, gods, setGods, commandIndex, setPass, allBans, setAllBans, pastBans, setPastBans, bansA, bansB, findBan, godBanished){
-    console.log(god, commandIndex, setPass, allBans, setAllBans, pastBans, setPastBans, bansA, bansB);
-    findBan = gods?.find(gods => gods.name === god.name);
-    if(findBan.banished === true) {
-        setPass(false); 
-    } else {
-        setPastBans([...bansA, ...bansB]);
-        setPass(true);
+export function Verification(selectedGod, commandIndex, godsArray, teamA, teamB, bansA, bansB, lastCommand){
+
+    if(!selectedGod) { // no selected God
+        alert("You should select a God!");
+        return false;
     }
-    // if(commandIndex === 6) testPicksA.find(e => e.name === godSelected.name);
-    // if(commandIndex === 7) testPicksB.find(e => e.name === godSelected.name);
+
+    if(selectedGod.banished === true){ // if the selected god is banished
+        alert("This god was banished");
+        return false;
+    }
+
+    return true; // if is all ok
     console.log(god, commandIndex, setPass, allBans, setAllBans, pastBans, setPastBans, bansA, bansB);
     console.log("###########################")
 }
