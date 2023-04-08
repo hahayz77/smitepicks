@@ -78,8 +78,10 @@ function App() {
                                         PickImageGod(god, setSelectedGod, commandIndex, bansA, setBansA, bansB, setBansB, teamA, setTeamA, teamB, setTeamB);
                                     }}>
                                     <span>{god.name}</span>
-                                    <img src={god.image} alt={god.name} />
-                                    {god.banished === true ? <span>Banished</span> : null}
+                                    <div className="img_wrapper relative">
+                                        <img src={god.image} alt={god.name} />
+                                        {god.banished === true ? <div className="banished"><span> ❌ </span></div> : null}
+                                    </div>
                                 </div>   
                             )
                            })}

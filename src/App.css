@@ -59,9 +59,12 @@ img{
  }
 
 .player_container{
- @apply  flex justify-center content-center text-white
+ @apply  grid grid-flow-col place-items-center
 }
 
+.player_container span{
+  @apply  justify-self-start text-xl text-white font-mono bg-black bg-opacity-30 px-4 py-1 rounded-xl
+ }
 
  /* ################### BANS ################### */
 
@@ -88,6 +91,14 @@ img{
 
 #bans_teamA .container_title, #bans_teamB .container_title{
   @apply py-3
+}
+
+.banished{
+ @apply  absolute inset-0 bg-black bg-opacity-50 grid place-items-center text-5xl text-opacity-30 rounded-3xl;
+}
+
+.img_wrapper span{
+  @apply opacity-50;
 }
 
  /* ################### GODS ################### */
