@@ -10,7 +10,7 @@ export function Verification(selectedGod, commandIndex, godsArray, teamA, teamB,
         return false;
     }
 
+    // console.log(god, commandIndex, setPass, allBans, setAllBans, pastBans, setPastBans, bansA, bansB);
+    // console.log("###########################")
     return true; // if is all ok
-    console.log(god, commandIndex, setPass, allBans, setAllBans, pastBans, setPastBans, bansA, bansB);
-    console.log("###########################")
 }

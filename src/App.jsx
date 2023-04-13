@@ -1,4 +1,3 @@
-
 import './App.css';
 import { Team } from './components/Team';
 import { Gods } from './components/Gods';
@@ -19,9 +18,9 @@ function App() {
                     </div>
                 </div>
                 <div id='maincontent' className="fluid-container">
-                        <Team team={teamA} bans={bansA} name={"teamA"}/>
-                        <Gods />
-                        <Team team={teamB} bans={bansB} name={"teamB"}/>
+                    <Team team={teamA} bans={bansA} name={"teamA"}/>
+                    <Gods />
+                    <Team team={teamB} bans={bansB} name={"teamB"}/>
                 </div>
         </div>
 

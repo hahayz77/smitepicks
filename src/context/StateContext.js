@@ -1,6 +1,5 @@
 import { createContext, useContext, useState } from "react";
 import { Verification } from '../functions/Verification';
-import { PickImageGod } from '../functions/PickImageGod';
 import { UpdateGodsArray } from '../functions/UpdateGodsArray';
 
 const Context = createContext();
@@ -75,9 +74,6 @@ export const StateContext = ( { children } ) => {
         lastCommand,
         MainScript,
 
-    }}>
-    {children}
-    </Context.Provider>
-    )}
+    }}> {children} </Context.Provider>)}
 
 export const useStateContext = () => useContext(Context);

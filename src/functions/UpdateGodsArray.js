@@ -10,5 +10,5 @@ export function UpdateGodsArray(selectedGod, godsArray, setGodsArray, commandInd
 
     
     setGodsArray(godsArray,...[updateGod]);
-    console.log("update gods array")
+    // console.log("update gods array")
 }
