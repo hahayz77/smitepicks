@@ -1,4 +1,4 @@
-export function TeamA({team, bans, name}) {
+export function Team({team, bans, name}) {
     return (
         <>
             <div id={name}>
