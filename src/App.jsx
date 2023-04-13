@@ -6,7 +6,7 @@ import { useStateContext } from "./context/StateContext";
 
 function App() {        
     
-    const { commands, commandIndex, MainScript, teamA, teamB, bansA, bansB, godsArray } = useStateContext();
+    const { commands, commandIndex, MainScript, teamA, teamB, bansA, bansB } = useStateContext();
 
   return (
     <>
@@ -20,7 +20,7 @@ function App() {
                 </div>
                 <div id='maincontent' className="fluid-container">
                         <Team team={teamA} bans={bansA} name={"teamA"}/>
-                        <Gods godsArray={godsArray}/>
+                        <Gods />
                         <Team team={teamB} bans={bansB} name={"teamB"}/>
                 </div>
         </div>
